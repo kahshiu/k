@@ -1,0 +1,25 @@
+options to setup kubernetes locally
+
+- docker desktop
+- minikube
+
+`kubectl version`
+
+- make sure the client + server belongs to the same version
+
+`kubectl get all`
+`kubectl get pods`
+
+write the pod in file
+`kuberctl apply -f basics/pod-webapp-angular`
+`kubectl exec webapp -- ls`
+`kubectl exec -it webapp -- sh`
+`kubectl describe pod webapp`
+`kubectl delete pods --all`
+``
+
+questions
+
+- how to get the ip of rancher desktop
+- how does pods connect with each other
+- expose pods

@@ -1,0 +1,17 @@
+# on rancher desktop
+cd ~/.kube
+- cache
+- config
+
+https://kubernetes.io/
+kubectl quick notes
+
+# alias on bash
+alias k="kubectl"
+
+# setup bash completion 
+source /etc/bash_completion
+
+[[-r "/opt/homebrew/etc/profile.d/bash_completion.sh"]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+source <(kubectl completion bash)
+complete -o default -F \_\_start_kubectl k

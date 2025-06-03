@@ -1,0 +1,15 @@
+kOps (kubernetes Operations)
+
+- build by community
+- self-managed
+- running price around 800 single master node
+- m3.medium, 600USD per year
+- load balancer, 200USD per year
+- node
+
+EKS
+
+- aws-managed
+- running price around 875 for multiple master
+- set fee
+- 876USD per year

@@ -1,0 +1,31 @@
+redirect from docker desktop to rancher desktop
+
+- to docker
+ln -s /Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx ~/.docker/cli-plugins/docker-buildx
+ln -s /Applications/Docker.app/Contents/Resources/cli-plugins/docker-compose ~/.docker/cli-plugins/docker-compose
+
+~/.docker/cli-plugins/docker-compose should be a symlink to ~/.rd/bin/docker-compose, but points to /Applications/Docker.app/Contents/Resources/cli-plugins/docker-compose.
+
+/Users/kahshiu.chong/.docker/cli-plugins/docker-buildx -> /Applications/Docker.app/Contents/Resources/cli-plugins/docker-buildx
+
+
+- to rancher
+rm ~/.docker/cli-plugins/docker-buildx
+rm ~/.docker/cli-plugins/docker-compose
+ln -s ~/.rd/bin/docker-buildx ~/.docker/cli-plugins/docker-buildx
+ln -s ~/.rd/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
+kahshiu.chong$ docker run 
+postgres@17.5-alpine3.21
+
+docker run --name my-postgres \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=test123 \
+  -e POSTGRES_DB=my_way \
+  -p 5432:5432 \
+  -v /Users/kahshiu.chong/Documents/data-postgres:/var/lib/postgresql/data \
+  -d postgres:17.5-alpine3.21 
+  
+  
+  postgres:17.5-alpine3.21
+  docker pull postgres:17.5-alpine3.21 
