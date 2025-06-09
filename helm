@@ -1,0 +1,10 @@
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo list
+helm repo update
+helm search repo wordpress --versions
+
+helm show chart bitnami/wordpress
+helm show readme bitnami/wordpress
+helm show values bitnami/wordpress
+
+watch -n 1 kubernetes get pods

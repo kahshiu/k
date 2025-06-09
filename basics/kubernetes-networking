@@ -1,0 +1,15 @@
+within a pod
+
+- use localhost
+
+kube-dns
+
+- inter pods
+
+`kubectl get namespace`
+`cat /etc/resolv.conf` this will help to check the kube-dns location
+
+nslookup service
+service-name.namespace.svc.cluster.local
+even clusterIP has a registered entry on kube-dns
+service discovery

@@ -1,0 +1,12 @@
+quality of service depends on request/ limit being defined properly
+
+1. guaranteed - well defined limit, request
+2. burstable - no limit
+3. best effort - no limit, no request
+
+why request/ limit must be equivalent?
+
+evictions
+https://drive.google.com/file/d/
+1gUCitFxXbjWNXGOTmg9QjWqb4CNgxe5k
+/view?usp=drive_link

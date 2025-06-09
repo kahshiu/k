@@ -8,3 +8,18 @@ spec:
       image: ubuntu.trusty
       command: ["echo"]
       args: ["hello world"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: containerA
+      image: your-application-image
+      ports:
+        - containerPort: 8080 # Assuming your application runs on port 8080
+    - name: containerB
+      image: your-database-image
+      ports:
+        - containerPort: 5432 # Assuming your database runs on port 5432

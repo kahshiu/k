@@ -20,6 +20,12 @@ write the pod in file
 
 questions
 
-- how to get the ip of rancher desktop
-- how does pods connect with each other
-- expose pods
+- how to get the ip of rancher desktop (Answer: rancher desktop runs on localhost)
+- how does pods connect with each other (Answer: via DNS service in kubernetes, connected via ClusterIP or LoadBalancer)
+- expose pods (Answer: done via services)
+
+deployments
+`kubectl rollout status deploy webapp`
+`kubectl rollout history deploy webapp`
+
+- deployments webapp

@@ -1,0 +1,9 @@
+configmap
+mapping secrets/ environment variables
+specific to namespace
+DOWNSIDE: have to restart all pods to read changes
+can mount configmap into a directory
+each entry will appear as file with secret content
+
+secrets expects base64,
+if string data, use stringData instead of data
