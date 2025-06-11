@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    meta.helm.sh/release-name: local-wp
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2025-06-09T01:33:40Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app.kubernetes.io/instance: local-wp
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: wordpress
+    app.kubernetes.io/version: 6.6.2
+    helm.sh/chart: wordpress-23.1.20
+  name: local-wp-wordpress
+  namespace: default
+  resourceVersion: "59676"
+  uid: b1439ef4-ccd7-4f20-86dc-d489435de28d
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.43.78.170
+  clusterIPs:
+  - 10.43.78.170
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    nodePort: 32136
+    port: 8010
+    protocol: TCP
+    targetPort: http
+  - name: https
+    nodePort: 30199
+    port: 443
+    protocol: TCP
+    targetPort: https
+  selector:
+    app.kubernetes.io/instance: local-wp
+    app.kubernetes.io/name: wordpress
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}

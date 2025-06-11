@@ -7,4 +7,45 @@ helm show chart bitnami/wordpress
 helm show readme bitnami/wordpress
 helm show values bitnami/wordpress
 
+helm install local-wp bitnami/wordpress --version=23.1.20
+kubectl get service local-wp-wordpress -o yaml > service.yaml
+kubectl edit service local-wp-wordpress
+
+kubectl get secrets
+kubectl describe secrets local-wp-wordpress
+kubectl get secrets local-wp-wordpress -o yaml
+kubectl get secrets local-wp-wordpress -o jsonpath='{.data.wordpress-password}' | base64 -d
+
+helm get values bitnami/wordpress
+helm get values local-wp
+helm get values local-wp --all
+
+kubectl get secret,pod,svc,pvc,pv,deploy
+
+---- install with custom values
+helm install local-wp bitnami/wordpress --version=23.1.20 \
+    --set "mariadb.auth.rootPassword=myroot" \
+    --set "mariadb.auth.password=mypass" 
+
+kubectl create secret generic custom-wp-credentials --from-literal wordpress-password=testpassword
+
+----
+helm upgrade --reuse-values --value custom-values.yaml local-wp bitnami/wordpress --version=23.1.20
+----
+
+helm uninstall local-wp
+
+kubectl get services
+kubectl delete service/local-wp
+
+kubectl get pvc,pv
+kubectl delete pvc data-local-wp-mariadb-0 
+
+kubectl get secrets
+
+----
+
 watch -n 1 kubernetes get pods
+
+kubectl expose deploy local-wp-wordpress --type=NodePort --name=local-wp
+kubectl get services

@@ -1,0 +1,15 @@
+github actions
+- Notes
+- can run in matrixes, in parallel, and can control max_parallel
+- include, exclude params
+- continue on error - even when a step fails, it will still turn out success
+- fail-fast - when one parallel job encounter error, the rest will off immediately. 
+  - Default behaviour is true, 
+  - Turn to false if parallel jobs should continue despite one hits error
+- set jobs prerequisite - needs
+- set jobs output/ set step output
+
+- can run in containers instead of os
+
+built-in functions: fromJson
+use actions/github-scripts to process string input
