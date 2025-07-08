@@ -43,6 +43,18 @@ kubectl delete pvc data-local-wp-mariadb-0
 
 kubectl get secrets
 
+--- rollback helm
+helm upgrade --reuse-values --values setting-values/custom-values.yaml --set "image.tag=unknown" local-wp bitnami/wordpress --version 23.1.20
+## NOTE: somehow helm history will still record as a successful deployment, need to investigate further
+kubectl get pods # use this to check if pods are actually deploy/ running well
+kubectl describe pods local-wp-... # to investigate if all is welll
+
+helm rollback local-wp 3
+kubectl get pods 
+
+## somehow replicaset is not cleaned properly, even after rollback need to check if old resources are removed
+need to check replicaset
+
 ----
 
 watch -n 1 kubernetes get pods
